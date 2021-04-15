@@ -10,29 +10,13 @@ import { DbzService } from '../services/dbz.service';
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.css']
 })
-export class MainPageComponent implements OnInit {
+export class MainPageComponent {
   nuevo : Personaje = {
     nombre: '',
     poder: 0
   }
-  personajes: Personaje[] = [
-    {
-      nombre: 'Goku',
-      poder: 15000
-    },
-    {
-      nombre: 'Vegeta',
-      poder: 7500
-    }
-  ];
 
-  ngOnInit(): void {
+
+  constructor(private dbzService: DbzService) {
   }
-
-  agregarNuevoPersonaje(argumento: Personaje): void{
-    this.personajes.push(argumento);
-    console.log("asdf");
-  }
-
-  constructor(private dbzService: DbzService) {}
 }
